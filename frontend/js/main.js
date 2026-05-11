@@ -3,7 +3,9 @@ const cssArea = document.getElementById('css_area');
 const jsArea = document.getElementById('js_area');
 const outputArea = document.getElementById('output_area');
 
-htmlArea.oninput = cssArea.oninput = jsArea.oninput = updateOutput;
+htmlArea.addEventListener('input', updateOutput);
+cssArea.addEventListener('input', updateOutput);
+jsArea.addEventListener('input', updateOutput);
 
 function renderPreview(html) {
     outputArea.srcdoc = html;    

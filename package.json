@@ -27,5 +27,8 @@
   "homepage": "https://github.com/pikitosdoritos/code-editor#readme",
   "devDependencies": {
     "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.55.1"
   }
 }

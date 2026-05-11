@@ -1,11 +1,10 @@
-const htmlArea = document.getElementById('html_area');
-const cssArea = document.getElementById('css_area');
-const jsArea = document.getElementById('js_area');
+import{ htmlEditor, cssEditor, jsEditor} from './editors/createEditor.js';
+
 const outputArea = document.getElementById('output_area');
 
-htmlArea.addEventListener('input', updateOutput);
-cssArea.addEventListener('input', updateOutput);
-jsArea.addEventListener('input', updateOutput);
+htmlEditor.onDidChangeModelContent(updateOutput);
+cssEditor.onDidChangeModelContent(updateOutput);
+jsEditor.onDidChangeModelContent(updateOutput);
 
 function renderPreview(html) {
     outputArea.srcdoc = html;    
@@ -36,5 +35,5 @@ function buildPage(html, css, js) {
 }
 
 function updateOutput() {
-    renderPreview(buildPage(htmlArea.value, cssArea.value, jsArea.value));
+    renderPreview(buildPage(htmlEditor.getValue(), cssEditor.getValue(), jsEditor.getValue()));
 }

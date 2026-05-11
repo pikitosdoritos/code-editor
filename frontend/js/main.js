@@ -9,30 +9,30 @@ function renderPreview(html) {
     outputArea.srcdoc = html;    
 }
 
-function buildPage() {
-    let html = '';
+function buildPage(html, css, js) {
+    let markup = '';
 
-    if (htmlArea.value.match(/<\/?(html|head|body)[^>]*>/gmi)?.length != 6) {
-        html = `
+    if (html.match(/<\/?(html|head|body)[^>]*>/gmi)?.length != 6) {
+        markup = `
         <html>
             <head>
-                <style>${cssArea.value}</style>
+                <style>${css}</style>
             </head>
             <body>
-                ${htmlArea.value}
-                <script>${jsArea.value}</script>
+                ${html}
+                <script>${js}</script>
             </body>
         </html>
         `;
     } else {
-        html = htmlArea.value;
-        html = html.replace(/<\/head>/, `<style>${cssArea.value}</style></head>`);
-        html = html.replace(/<\/body>/, `<script>${jsArea.value}</script></body>`);
+        markup = html;
+        markup = markup.replace(/<\/head>/, `<style>${css}</style></head>`);
+        markup = markup.replace(/<\/body>/, `<script>${jss}</script></body>`);
     }
 
-    return html;
+    return markup;
 }
 
 function updateOutput() {
-    renderPreview(buildPage());
+    renderPreview(buildPage(htmlArea.value, cssArea.value, jsArea.value));
 }

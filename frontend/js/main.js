@@ -29,7 +29,7 @@ function buildPage(html, css, js) {
     } else {
         markup = html;
         markup = markup.replace(/<\/head>/, `<style>${css}</style></head>`);
-        markup = markup.replace(/<\/body>/, `<script>${jss}</script></body>`);
+        markup = markup.replace(/<\/body>/, `<script>${js}</script></body>`);
     }
 
     return markup;

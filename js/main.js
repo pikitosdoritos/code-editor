@@ -11,13 +11,19 @@ const previewButton = document.getElementsByClassName('preview-button')[0];
 
 previewButton.onclick = updateOutput;
 
-window.onkeydown = saveCode;
+window.onkeydown = handleKeys;
 
-function saveCode(e) {
+
+function handleKeys(e) {
     if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
         localStorage.setItem('html', htmlEditor.getValue());
         localStorage.setItem('css', cssEditor.getValue());
         localStorage.setItem('js', jsEditor.getValue());
+    }
+
+    if (e.ctrlKey && e.key === 'Enter') {
+        updateOutput();
     }
 }
 

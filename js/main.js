@@ -1,4 +1,10 @@
-import{ htmlEditor, cssEditor, jsEditor} from './editors/createEditor.js';
+import{ initEditors } from './editors/createEditor.js';
+
+const html = localStorage.getItem('html') || '<h1>Hello</h1>';
+const css = localStorage.getItem('css') || 'h1 { color: red; }';
+const js = localStorage.getItem('js') || 'console.log("Hello");';
+
+const { htmlEditor, cssEditor, jsEditor } = initEditors(html, css, js);
 
 const outputArea = document.getElementById('output-area');
 const previewButton = document.getElementsByClassName('preview-button')[0];

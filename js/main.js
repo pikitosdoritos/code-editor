@@ -6,6 +6,14 @@ htmlEditor.onDidChangeModelContent(updateOutput);
 cssEditor.onDidChangeModelContent(updateOutput);
 jsEditor.onDidChangeModelContent(updateOutput);
 
+htmlEditor.onDidFocusEditorText(() => {
+    console.log('focused ' +  Date.now()); 
+});
+
+htmlEditor.onDidBlurEditorText(() => {
+    console.log('blurred ' + Date.now());
+});
+
 function renderPreview(html) {
     outputArea.srcdoc = html;    
 }

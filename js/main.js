@@ -11,6 +11,16 @@ const previewButton = document.getElementsByClassName('preview-button')[0];
 
 previewButton.onclick = updateOutput;
 
+window.onkeydown = saveCode;
+
+function saveCode(e) {
+    if (e.ctrlKey && e.key === 's') {
+        localStorage.setItem('html', htmlEditor.getValue());
+        localStorage.setItem('css', cssEditor.getValue());
+        localStorage.setItem('js', jsEditor.getValue());
+    }
+}
+
 function renderPreview(html) {
     outputArea.srcdoc = html;    
 }

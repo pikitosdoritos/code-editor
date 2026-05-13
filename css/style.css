@@ -14,15 +14,18 @@ body {
 
 body {
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .area {
     width: 100%;
-    height: 42vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin-bottom: 18px;
+    flex-grow: 1;
 }
 
 div[data-title] {

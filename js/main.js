@@ -3,19 +3,7 @@ import{ htmlEditor, cssEditor, jsEditor} from './editors/createEditor.js';
 const outputArea = document.getElementById('output-area');
 const previewButton = document.getElementsByClassName('preview-button')[0];
 
-// htmlEditor.onDidChangeModelContent(updateOutput);
-// cssEditor.onDidChangeModelContent(updateOutput);
-// jsEditor.onDidChangeModelContent(updateOutput);
-
 previewButton.onclick = updateOutput;
-
-htmlEditor.onDidFocusEditorText(() => {
-    console.log('focused ' +  Date.now()); 
-});
-
-htmlEditor.onDidBlurEditorText(() => {
-    console.log('blurred ' + Date.now());
-});
 
 function renderPreview(html) {
     outputArea.srcdoc = html;    
